@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE foo [ <!-- dtd comment --> ]>
+<root attr="<!-- not a comment -->">
+  <!-- carrier alpha bravo charlie delta echo foxtrot golf hotel india juliet kilo lima mike november oscar papa quebec romeo sierra tango -->
+  <![CDATA[ <!-- not a comment --> ]]>
+  <script src="x.js"/>
+  <!-- after empty script -->
+  <script><!-- real xml comment --></script>
+  <!-- trailing carrier alpha bravo charlie delta echo foxtrot -->
+</root>

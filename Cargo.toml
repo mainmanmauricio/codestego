@@ -1,0 +1,53 @@
+[package]
+name = "codestego"
+version = "0.9.0"
+edition = "2024"
+description = "Keyed steganographic watermarking for source code"
+license = "GPL-2.0-only"
+readme = "README.md"
+authors = ["Maurice Gittens"]
+repository = "https://github.com/mainmanmauricio/codestego"
+
+[dependencies]
+anyhow = "1.0.104"
+argon2 = { version = "0.5.3", features = ["std", "password-hash"] }
+blake3 = "1.8.6"
+chacha20poly1305 = { version = "0.11.0", features = ["getrandom"] }
+clap = { version = "4.6.6", features = ["derive", "env"] }
+hex = "0.4.3"
+ignore = "0.4.33"
+rand = "0.10.2"
+reed-solomon-erasure = "6.0.0"
+serde = { version = "1.0.229", features = ["derive"] }
+serde_json = "1.0"
+thiserror = "2.0.20"
+zeroize = { version = "1.9.0", features = ["derive"] }
+
+[dev-dependencies]
+proptest = "1.6"
+tempfile = "3"
+
+[[bin]]
+name = "codestego"
+path = "src/main.rs"
+
+[package.metadata.deb]
+section = "utils"
+priority = "optional"
+assets = [
+    ["target/release/codestego", "usr/bin/", "755"],
+    ["docs/USER_GUIDE.md", "usr/share/doc/codestego/", "644"],
+    ["docs/codestego.1", "usr/share/man/man1/", "644"],
+    ["LICENSE", "usr/share/doc/codestego/", "644"],
+    ["README.md", "usr/share/doc/codestego/", "644"],
+]
+
+[package.metadata.generate-rpm]
+auto-req = "no"
+assets = [
+    { source = "target/release/codestego", dest = "/usr/bin/codestego", mode = "755" },
+    { source = "docs/USER_GUIDE.md", dest = "/usr/share/doc/codestego/USER_GUIDE.md", mode = "644", doc = true },
+    { source = "docs/codestego.1", dest = "/usr/share/man/man1/codestego.1", mode = "644", doc = true },
+    { source = "LICENSE", dest = "/usr/share/doc/codestego/LICENSE", mode = "644", doc = true },
+    { source = "README.md", dest = "/usr/share/doc/codestego/README.md", mode = "644", doc = true },
+]

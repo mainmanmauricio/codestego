@@ -1,0 +1,41 @@
+.TH CODESTEGO 1 "2026" "codestego 0.9.0" "User Commands"
+.SH NAME
+codestego \- keyed steganographic watermarking for source code
+.SH SYNOPSIS
+.B codestego
+\fICOMMAND\fR [\fIOPTIONS\fR]...
+.SH DESCRIPTION
+Embed a short, encrypted payload (owner, recipient, note, timestamp) into
+comments and insignificant whitespace of C, C++, Go, Java, JavaScript,
+TypeScript, Rust, HTML, XML, or SGML source. Extraction requires your secret key.
+.PP
+Commands include
+.BR keygen ,
+.BR embed ,
+.BR extract ,
+.BR scan ,
+.BR capacity ,
+.BR strip ,
+and
+.BR doctor .
+.SH FILES
+.TP
+.I ~/.config/codestego/key
+Default master key path (mode 0600).
+.SH ENVIRONMENT
+.TP
+.B CODESTEGO_KEY
+Hex-encoded 32-byte master key (alternative to a key file).
+.SH SEE ALSO
+Full documentation:
+.IR /usr/share/doc/codestego/USER_GUIDE.md .
+.PP
+Project README and
+.B codestego --help
+for flag details.
+.SH COPYRIGHT
+Copyright (C) 2026 Maurice Gittens. Licensed under the GNU General Public License, version 2. See LICENSE.
+.SH AUTHOR
+Maurice Gittens
+.PP
+https://github.com/mainmanmauricio/codestego

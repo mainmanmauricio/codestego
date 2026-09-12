@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="80" height="40">
+  <!-- greeting used as a watermark carrier -->
+  <text x="4" y="24">hello</text>
+  <!-- keep this block comment -->
+</svg>
